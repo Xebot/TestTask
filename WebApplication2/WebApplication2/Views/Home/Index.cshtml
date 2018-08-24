@@ -1,0 +1,54 @@
+﻿@{
+    //ViewBag.Title = "Home Page";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Список дел</title>
+</head>
+<body>
+    <div>
+        <h3>Список дел:</h3>
+        <table>
+            <tr>
+                <td><p>ИД</p></td>
+                <td><p>Дело</p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+            </tr>
+            @foreach (var t in ViewBag.Todos)
+        {
+            <tr>
+                <td><p>@t.Id</p></td>
+                <td><p>@t.Task</p></td>
+                <td><a href="/Home/Edit/@t.Id"><input type="submit" value="редактировать" /></a></td>
+                <td><a href="/Home/Delete/@t.Id"><input type="submit" value="удалить" /></a></td>
+
+            </tr>
+    }
+        </table>
+        
+        <form action="/Home/Add/" method="get">
+            <table>
+                <tr>
+                    <td><p>Введите название нового дела</p></td>
+                    <td><input type="text" name="Task" /></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Добавить"></td>
+                </tr>
+            </table>
+                </form>
+        
+
+    </div>
+    <style>
+        tr, td { padding: 8px; width:250px;}
+        th {background: #28a4fa; color: white; font-weight: bold;}
+        tr:nth-of-type(even) {background: #eee;}
+        tr:nth-of-type(odd){background:#fffbd6;}
+    </style>
+</body>
+</html>

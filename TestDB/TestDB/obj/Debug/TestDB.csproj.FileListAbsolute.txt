@@ -1,0 +1,11 @@
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\TestDB.exe.config
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\TestDB.exe
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\TestDB.pdb
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\EntityFramework.dll
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\EntityFramework.xml
+C:\Users\Stepan\source\repos\TestDB\TestDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Stepan\source\repos\TestDB\TestDB\obj\Debug\TestDB.csproj.CoreCompileInputs.cache
+C:\Users\Stepan\source\repos\TestDB\TestDB\obj\Debug\TestDB.exe
+C:\Users\Stepan\source\repos\TestDB\TestDB\obj\Debug\TestDB.pdb
+C:\Users\Stepan\source\repos\TestDB\TestDB\obj\Debug\TestDB.csprojResolveAssemblyReference.cache
