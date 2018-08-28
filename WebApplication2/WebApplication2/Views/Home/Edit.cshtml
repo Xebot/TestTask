@@ -1,6 +1,7 @@
 ﻿
 @{
-    Layout = null;
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -12,11 +13,33 @@
 </head>
 <body>
     <div>
+        
         <h3>Введите новые данные</h3>
         <form method="post" action="">
-            <input type="text" value="@ViewBag.Task" name="Task"/>
-            <input type="submit" value="Изменить"/>
+            <table>
+                <tr>
+                    <td><p>ИД</p></td>
+                    <td><p>Дело</p></td>
+                    <td><p>Дата дела</p></td>
+                    <td><p>Отметка о выполнении</p></td>
+                </tr>
+                <tr>
+                    <td><p>@ViewBag.Id</p></td>
+                    <td><input type="text" value="@ViewBag.Task" name="Task" /></td>
+                    <!--преобразуем дату в формат гггг-ММ-дд чтобы она корректно отображалась в type=date -->
+                    <td><input type="date" value="@ViewBag.TaskDate.ToString("yyyy-MM-dd")" name="TaskDate" required="required"></td>
+                    <td>
+                        @{if (ViewBag.isDone == false) {<input type="checkbox" name="isDone" />;}
+                        else {<input type="checkbox" checked=@ViewBag.isDone name="isDone" />;} 
+                         }
+                    </td>
+                </tr>
+            </table>
+
+            <input type="submit" value="Изменить" />
         </form>
+
+        
     </div>
 </body>
 </html>

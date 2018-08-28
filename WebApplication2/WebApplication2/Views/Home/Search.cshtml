@@ -1,0 +1,42 @@
+﻿
+@{
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
+</head>
+<body>
+    <div>
+        <h3>Список найденных дел:</h3>
+        <table>
+            <tr>
+                <td><p>ИД</p></td>
+                <td><p>Дело</p></td>
+                <td><p>Дата дела</p></td>
+                <td><p>Отметка о выполнении</p></td>
+                <td><p></p></td>
+                <td><p></p></td>
+            </tr>
+            @foreach (var t in ViewBag.FindItems)
+            {
+            <tr>
+                <td><p>@t.Id</p></td>
+                <td><p>@t.Task</p></td>
+                <td><p>@t.TaskDate.ToLongDateString()</p></td>
+                <td>
+                    @{if (t.isDone == false) {<p>Не выполнено</p>;} else {<p>Выполнено</p>;}}
+                </td>
+            </tr>
+            }
+        </table>
+        <a href="/Home/Index"><input type="submit" value="На главную" /></a> 
+        
+    </div>
+</body>
+</html>

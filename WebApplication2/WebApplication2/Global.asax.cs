@@ -15,7 +15,7 @@ namespace WebApplication2
         protected void Application_Start()
         {
             //инициализация на случай если небыло данных в базе
-            //Database.SetInitializer(new ToDoInitializer());
+            Database.SetInitializer(new ToDoInitializer());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

@@ -1,6 +1,7 @@
 ﻿@{
     //ViewBag.Title = "Home Page";
-    Layout = null;
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!DOCTYPE html>
 <html>
@@ -10,11 +11,30 @@
 </head>
 <body>
     <div>
+        <form action="/Home/Search/" methond="get">
+            <table>
+                <tr>
+                    <td>Поиск по дате</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td><input type="date" name="SearchDate" required="required" /></td>
+                    <td><input type="submit" value="найти" /></td>
+                </tr>
+
+            </table>
+            <br />
+
+
+
+        </form>
         <h3>Список дел:</h3>
         <table>
             <tr>
                 <td><p>ИД</p></td>
                 <td><p>Дело</p></td>
+                <td><p>Дата дела</p></td>
+                <td><p>Отметка о выполнении</p></td>
                 <td><p></p></td>
                 <td><p></p></td>
             </tr>
@@ -23,32 +43,42 @@
             <tr>
                 <td><p>@t.Id</p></td>
                 <td><p>@t.Task</p></td>
+                <td><p>@t.TaskDate.ToLongDateString()</p></td>
+                <td>
+                    @{if (t.isDone == false)
+                    {<p>Не выполнено</p>;
+                }
+                else
+                {<p>Выполнено</p>;
+            } }
+                </td>
                 <td><a href="/Home/Edit/@t.Id"><input type="submit" value="редактировать" /></a></td>
                 <td><a href="/Home/Delete/@t.Id"><input type="submit" value="удалить" /></a></td>
-
+                <td>
+                    @{if (t.isDone == false)
+                    {<a href="/Home/Done/@t.Id"><input type="submit" value="отметить выполненным" /></a>}
+                    }
+                </td>
             </tr>
     }
         </table>
-        
         <form action="/Home/Add/" method="get">
             <table>
                 <tr>
-                    <td><p>Введите название нового дела</p></td>
-                    <td><input type="text" name="Task" /></td>
+                    <td><p>Введите новое дело</p></td>
+                    <td><p>Введите дату нового дела</p></td>
+
+                </tr>
+                <tr>
+                    <td><input type="text" name="Task" required="required" /></td>
+                    <td><input type="date" name="TaskDate" required="required" /></td>
                 </tr>
                 <tr>
                     <td><input type="submit" value="Добавить"></td>
                 </tr>
             </table>
-                </form>
-        
-
+        </form>
     </div>
-    <style>
-        tr, td { padding: 8px; width:250px;}
-        th {background: #28a4fa; color: white; font-weight: bold;}
-        tr:nth-of-type(even) {background: #eee;}
-        tr:nth-of-type(odd){background:#fffbd6;}
-    </style>
+    
 </body>
 </html>
